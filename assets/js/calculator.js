@@ -1,11 +1,5 @@
 var calcInput = document.getElementById("calcInput");
-var operators = ['+', '-', '/', '*'];
-
-calcInput.addEventListener("change", removeColor());
-
-function removeColor() {
-    document.getElementById("colorChange").classList.remove("btn-danger");
-}
+var colorChange = document.getElementById("colorChange");
 
 function clearCalc() {
     calcInput.value = "";
@@ -19,27 +13,22 @@ function addInCalc(val, operand=true) {
     } else {
         calcInput.value = calcInput.value + val;
     }
-    removeColor();
 }
 
 // Following the minimum requirements
 function calculate() {
-    let calcIn = calcInput.value;
+    colorChange.classList.remove("btn-danger");
 
-    if(calcIn.indexOf('*') != -1) {
-        var answer = parseInt(calcIn.substring(0, calcIn.indexOf('*'))) * parseInt(calcIn.substring(calcIn.indexOf('*')+1));
-    } else if(calcIn.indexOf('/') != -1) {
-        var answer = parseInt(calcIn.substring(0, calcIn.indexOf('/'))) / parseInt(calcIn.substring(calcIn.indexOf('/')+1));
-    } else if(calcIn.indexOf('-') != -1) {
-        var answer = parseInt(calcIn.substring(0, calcIn.indexOf('-'))) - parseInt(calcIn.substring(calcIn.indexOf('-')+1));
-    } else if(calcIn.indexOf('+') != -1) {
-        var answer = parseInt(calcIn.substring(0, calcIn.indexOf('+'))) + parseInt(calcIn.substring(calcIn.indexOf('+')+1));
-    } else {
-        var answer = "CALCULATION ERROR";
+    var calcIn = calcInput.value;
+
+    try {
+        var answer = eval(calcIn);
+    } catch(e) {
+        var answer = "error";
     }
 
     if(answer == 27) {
-        document.getElementById("colorChange").classList.add("btn-danger");
+        colorChange.classList.add("btn-danger");
     }
 
     calcInput.value = answer;

@@ -1,0 +1,25 @@
+# EditorConfig for LIVE Competition Developers
+# https://EditorConfig.org
+# https://live-competition.org
+
+# Top-most EditorConfig file
+root = true
+
+# Default configuration for all
+# PEP8 for Python specifies 4 spaces for indentation
+[*]
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+end_of_line = lf
+charset = utf-8
+
+# 2 space indentation for specified files
+[*.{html, htm, yaml, yml}]
+indent_size = 2
+
+# Minified JavaScript and CSS files shouldn't be changed
+[**.min.{js, css}]
+indent_style = ignore
+insert_final_newline = ignore

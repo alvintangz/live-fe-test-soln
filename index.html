@@ -1,0 +1,116 @@
+---
+title: Calculator
+---
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    {% include head.html %}
+    <style type="text/css">
+      @-webkit-keyframes fadeIn {
+        from {
+          opacity:0;
+          background-color: #000;
+        }
+        to {
+          opacity:1;
+          background-color: transparent;
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity:0;
+          background-color: #000;
+        }
+        to {
+          opacity:1;
+          background-color: transparent;
+        }
+      }
+
+      #calculator {
+        -webkit-animation-name: fadeIn;
+                animation-name: fadeIn;
+        -webkit-animation-duration: 2s;
+                animation-duration: 2s;
+      }
+    </style>
+  </head>
+  <body>
+    {% include header.html %}
+    <main>
+      <div class="container p-5" id="calculator">
+        <div class="row">
+          <div class="col">
+            <h1>Calculator</h1>
+            <p>The calculator below follows the project requirements listed <a href="/instructions.pdf" download>here</a>.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Enter values for calculation." style="text-align: right;" onClick="this.select();" id="calcInput">
+          </div>
+        </div>
+        <div class="row pt-3">
+          <div class="col">
+            <button class="btn btn-outline-dark btn-block" onClick="addInCalc(7)">7</button>
+          </div>
+          <div class="col">
+            <button class="btn btn-outline-dark btn-block" onClick="addInCalc(8)">8</button>
+          </div>
+          <div class="col">
+            <button class="btn btn-outline-dark btn-block" onClick="addInCalc(9)">9</button>
+          </div>
+          <div class="col">
+            <button class="btn btn-outline-primary btn-block" onClick="addInCalc('/', false)">&#247;</button>
+          </div>
+        </div>
+        <div class="row pt-3">
+          <div class="col">
+            <button class="btn btn-outline-dark btn-block" onClick="addInCalc(4)">4</button>
+          </div>
+          <div class="col">
+            <button class="btn btn-outline-dark btn-block" onClick="addInCalc(5)">5</button>
+          </div>
+          <div class="col">
+            <button class="btn btn-outline-dark btn-block" onClick="addInCalc(6)">6</button>
+          </div>
+          <div class="col">
+            <button class="btn btn-outline-primary btn-block" onClick="addInCalc('*', false)">x</button>
+          </div>
+        </div>
+        <div class="row pt-3">
+          <div class="col">
+            <button class="btn btn-outline-dark btn-block" onClick="addInCalc(1)">1</button>
+          </div>
+          <div class="col">
+            <button class="btn btn-outline-dark btn-block" onClick="addInCalc(2)">2</button>
+          </div>
+          <div class="col">
+            <button class="btn btn-outline-dark btn-block" onClick="addInCalc(3)">3</button>
+          </div>
+          <div class="col">
+            <button class="btn btn-outline-primary btn-block" onClick="addInCalc('-', false)">-</button>
+          </div>
+        </div>
+        <div class="row pt-3">
+          <div class="col">
+            <button class="btn btn-outline-dark btn-block" onClick="addInCalc(0)">0</button>
+          </div>
+          <div class="col">
+            <button class="btn btn-dark btn-block" onClick="clearCalc()">CR</button>
+          </div>
+          <div class="col">
+            <button class="btn btn-secondary btn-block" onClick="calculate()" id="colorChange">=</button>
+          </div>
+          <div class="col">
+            <button class="btn btn-outline-primary btn-block" onClick="addInCalc('+', false)">+</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    {% include footer.html %}
+    <script src="/assets/js/calculator.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+  </body>
+</html>

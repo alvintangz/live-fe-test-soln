@@ -1,5 +1,6 @@
 var calcInput = document.getElementById("calcInput");
 var colorChange = document.getElementById("colorChange");
+var operators = ['-', '+', '*', '/'];
 
 function clearCalc() {
     calcInput.value = "";
